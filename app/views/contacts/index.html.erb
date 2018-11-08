@@ -1,0 +1,17 @@
+<div class="contact_form">
+
+  <%= form_for @inquiry, :url => contacts_confirm_path  do |f| %>
+    <h3><%= f.label :name, "名前" %></h3>
+    <h3><%= f.text_field :name%><h3>
+
+    <p><%= f.label :email, "メールアドレス" %></p>
+    <p><%= f.email_field :email %></p>
+
+    <p><%= f.label :message, "お問い合わせ内容" %></p>
+    <p><%= f.text_area :message%></p>
+
+    <p><%= f.submit "入力内容の確認" %><p>
+
+    <%end%>
+
+</div>

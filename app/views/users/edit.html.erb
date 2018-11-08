@@ -1,0 +1,39 @@
+
+<div class="edit-main">
+    <%= form_for(@user) do |f| %>
+        <h3><%= f.label :name,"ユーザー名"%></h3>
+        <%= f.text_field :name %>
+
+        <h3><%= f.label :image, "プロフィール画像"%></h3>
+        <%= f.file_field :image%>
+
+        <h3><%= f.label :email, "メールアドレス"%></h3>
+        <%= f.email_field :email %>
+
+
+        <h3><%= f.label :sex, "性別(必須)" %></h3>
+        <label><%= f.radio_button :sex, "男" %>男</label>
+        <label><%= f.radio_button :sex, "女" %>女</label>
+
+        <h3><%= f.label :howmuch, "年齢()" %></h3>
+        <%= f.select :howmuch, [["20代", "20代"], ["30代", "30代"], ["40代", "40代"], ["50代", "50代"]], :selected=>@user.howmuch%>
+
+        <h3><%= f.label :address, "場所" %></h3>
+
+
+        <h3><%= f.label :introduce, "自己紹介(200文字未満)" %></h3>
+        <%= f.text_area :introduce %>
+
+        <h3><%= f.label :password, "パスワード"%></h3>
+        <%= f.password_field :password %>
+
+        <h3><%= f.label :password_confirmation, "パスワードの確認"%></h3>
+        <%= f.password_field :password_confirmation %>
+
+        <p><%= f.submit "編集を完了する"%></p>
+    <% end %>
+
+
+
+
+</div>

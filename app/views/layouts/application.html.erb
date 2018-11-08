@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Match</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="header">
+
+        <div class="headerLogo">
+          <%= link_to "match", root_url%>
+        </div>
+
+        <div class="headerList">
+          <ul>
+
+            <li><%= link_to "about", home_about_path %></li>
+
+            <li><%= link_to "contact", contacts_index_path %></li>
+          <% if current_user %>
+                <%= link_to users_path do %>
+
+            <li><%= fa_icon 'heart', class: "fa_pink"%></li>
+
+                <%end%>
+            <li><%= link_to "post", new_post_path %></li>
+            <li><%= link_to "mypage", user_path(@current_user.id)%></li>
+            <li><%= link_to "logout", logout_path, method: :delete %></li>
+          <%else%>
+            <li><%= link_to "新規登録", new_user_path %></li>
+            <li><%= link_to "login", login_path %></li>
+          <%end%>
+          </ul>
+      </div>
+    </div>
+
+    <div class="main">
+      <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+      <%= yield%>
+
+    </div>
+
+
+    <div class="footer">
+
+
+    </div>
+
+
+  </body>
+</html>

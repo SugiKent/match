@@ -1,0 +1,24 @@
+<div class="confirm">
+
+  <h2>お問い合わせ内容の確認</h2>
+
+  <%= form_for @inquiry, :url => contacts_thanks_path do |f| %>
+    名前:
+    <%= f.hidden_field :name %>
+    <%= @inquiry.name%>
+<br>
+
+    メールアドレス:
+     <%= f.hidden_field :email %>
+     <%= @inquiry.email%>
+<br>
+
+    お問い合わせ内容:
+     <%= f.hidden_field :message %>
+     <%= @inquiry.message%>
+
+  <p><%= f.submit "送信" %></p>
+
+  <%end%>
+
+</div>
