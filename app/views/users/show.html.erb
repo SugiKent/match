@@ -1,5 +1,9 @@
 <div class="show-main">
-    <%= image_tag @user.image.url if @user.image?%>
+  <% if @user.image %>
+    <%= image_tag @user.image.url %>
+  <%else%>
+    <%= image_tag @user.default_url%>
+  <%end%>
 
     <h2><%= @user.name %></h2>
     <li><%= @user.email %></li>

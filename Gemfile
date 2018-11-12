@@ -31,6 +31,14 @@ gem 'font-awesome-rails'
 
 gem 'ransack', '~> 2.1.0'
 
+gem 'kaminari'
+
+gem 'jquery-rails'
+
+gem 'rails-i18n', '~> 5.1'
+
+gem 'dotenv-rails'
+
 #gem 'bootstrap-sass',       '3.2.0.0'
 
 #gem 'bootstrap', '~> 4.1.3'

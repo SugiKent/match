@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   include SessionsHelper
+  include PostsHelper
   before_action :correct_user, only: :destroy
 
 
@@ -24,7 +25,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @comment = Comment.new #postコントローラーのshow.html.erbでコメントの入力フォームで使用するためにインスタンス変数、@commentを記述
-    @comments = @post.comments.includes(:user) #postコントローラーのshow.html.erbでコメントを表示するためにインスタンス変数、@commentsを記述
+    @comments = @post.comments #postコントローラーのshow.html.erbでコメントを表示するためにインスタンス変数、@commentsを記述
   end
 
   def destroy

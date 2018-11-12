@@ -1,18 +1,6 @@
 <%= @post.content %>
 <%= image_tag @post.picture.url if @post.picture?%>
 
-<%if current_user %>
-  <%= form_for [@post, @comment] do |f| %>
-    <%= f.label :comment, "コメント" %>
-    <%= f.text_field :comment%>
-    <br>
-    <%= f.submit "コメントする"%>
-  <%end%>
-<%end%>
-
-<% if @comments.present? %> <!--コメントがあるか確認　あれば表示-->
-  <% @comments.each do |comment|%>
-    <%= comment.user.name%>
-    <%= comment.comment%>
-  <%end%>
-<%end%>
+<span id="comment_<%= @post.id%>">
+  <%= render 'posts/comment'%>
+</span>

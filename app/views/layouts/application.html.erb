@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
 
+
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -21,21 +22,39 @@
         <div class="headerList">
           <ul>
 
-            <li><%= link_to "about", home_about_path %></li>
-
-            <li><%= link_to "contact", contacts_index_path %></li>
+                <%= link_to  home_about_path do %>
+            <li class="fa fa-hea"></li>about
+                <%end%>
+          <br>
+                <%= link_to  contacts_index_path do %>
+            <li class="fa fa-envelope"></li>contact
+                <%end%>
+          <br>
           <% if current_user %>
                 <%= link_to users_path do %>
-
-            <li><%= fa_icon 'heart', class: "fa_pink"%></li>
-
+            <li class="fa fa-users"></li>users
                 <%end%>
-            <li><%= link_to "post", new_post_path %></li>
-            <li><%= link_to "mypage", user_path(@current_user.id)%></li>
-            <li><%= link_to "logout", logout_path, method: :delete %></li>
+          <br>
+                <%= link_to  new_post_path do %>
+            <li class="fa fa-edit"></li>post
+                <%end%>
+          <br>
+                <%= link_to  user_path(@current_user.id) do %>
+            <li class="fa fa-user"></li><%= @current_user.name%>
+                <%end%>
+          <br>
+                <%= link_to  logout_path, method: :delete do %>
+            <li class="fa fa-sign-out"></li>logout
+                <%end%>
+          <br>
           <%else%>
-            <li><%= link_to "新規登録", new_user_path %></li>
-            <li><%= link_to "login", login_path %></li>
+                <%= link_to  new_user_path do %>
+            <li class="fa fa-user-plus"></li>新規登録
+                <%end%>
+          <br>
+                <%= link_to  login_path do %>
+            <li class="fa fa-sign-in"></li>login
+                <%end%>
           <%end%>
           </ul>
       </div>

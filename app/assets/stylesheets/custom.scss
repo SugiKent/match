@@ -1,12 +1,9 @@
-html {
-  height: 1000px;
-  width: 500px;
-}
+
 
 
 .header {
   height: 300px;
-  width: 500px;
+  width: 100%;
 }
 
 .headerLogo {
@@ -22,7 +19,6 @@ html {
   padding: 20px 20px;
   font-style: italic;
   font-weight: 200;
-  display: inline-block;
 }
 
 
@@ -95,30 +91,42 @@ html {
 .users {
   font-style: italic;
   padding: 10px 20px;
-  display: table-cell;
+  font-size: 14px;
 
 }
 
-.users li {
-  text-align: left;
-}
 
 .users img {
   border-radius: 50%;
-  float: left;
-  display: inline-block;
-  width: 100px;
   height: 100px;
-
+  width: 100px;
+  vertical-align: middle;
+  display:inline-block;
 }
 
 .show-main img {
   border-radius: 50%;
-  display: inline-block;
   width: 100px;
   height: 100px;
 }
 
 .post-form p {
   padding-bottom: 20px;
+}
+
+.post-button {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #fd9535;/*色*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px #d27d00;/*線色*/
+}
+
+.post-button:active {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }

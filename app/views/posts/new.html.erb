@@ -1,7 +1,9 @@
 <div class="post-form">
 <%= form_for (@post) do |f| %>
-  <p><%= f.text_area :content, placeholder: "投稿内容を入力してください" %></p>
-  <p><%= f.file_field :picture%></p>
-  <%= f.submit "投稿する" %>
+  <p><%= f.text_area :content, placeholder: "what's happening?" %></p>
+    <label for="post-file">
+      <%= f.file_field :picture%>
+    </label>
+  <div class="post-button"><%= f.submit "投稿する" %></div>
 <%end%>
 </div>

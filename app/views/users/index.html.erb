@@ -15,14 +15,23 @@
             <%= f.select :howmuch_matches, [["20代", "20代"], ["30代", "30代"], ["40代", "40代"], ["50代", "50代"]], :prompt =>"選択してください"%>
 
 
-          <div class="action"><%= f.submit "検索" %></div>
+            <%= f.submit "検索" %>
           <%end%>
         </div>
-          <div class="users">
-            <% @users.each do |user| %>
-              <%= image_tag user.image.url if user.image?%>
-              <li><%= link_to user.name, user_path(user.id) %></li>
 
-            <%end%>
+          <div class="users">
+            <ul>
+              <% @users.each do |user| %>
+                <li><% if user.image %>
+                  <%= image_tag user.image.url %>
+                <%else%>
+                  <%= image_tag user.default_url%>
+                <%end%>
+                <%= link_to user.name, user_path(user.id) %>
+              </li>
+
+              <%end%>
+            </ul>
+
           </div>
     </div>

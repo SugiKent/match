@@ -1,0 +1,25 @@
+<span id="comment">
+  <%if current_user %>
+  <%= form_for [@post, @comment] do |f| %>
+    <%= f.label :comment, "コメント" %>
+    <%= f.text_field :comment%>
+    <%= f.submit "コメントする"%>
+  <%end%>
+<%end%>
+
+  <% @comments.each do |comment|%>
+    <%= comment.user.name%>
+    <%= comment.comment%>
+    <% if comment.user == current_user %>
+      <%= link_to  post_comment_path(comment.post.id, comment.id), method: :delete do %>
+        <i class="fa fa-trash"></i>
+      <%end%>
+      <time datetime="<%= comment.created_at %>">
+        <%= time_ago_in_words(comment.created_at) %>前
+    </time>
+    <%end%>
+
+    <br>
+    <hr>
+  <%end%>
+</span>
